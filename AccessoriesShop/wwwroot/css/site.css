@@ -1,0 +1,159 @@
+/* -------------------
+   GLOBAL STYLES
+------------------- */
+:root {
+    --primary-color: #6a1b9a; /* A richer purple */
+    --primary-hover: #4a148c;
+    --body-bg: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --border-radius: 8px;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+}
+
+/* -------------------
+   HEADER & NAVBAR
+------------------- */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    transition: color .2s ease-in-out;
+}
+
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+
+/* -------------------
+   BUTTONS & FORMS
+------------------- */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-hover);
+        border-color: var(--primary-hover);
+    }
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: white;
+    }
+
+.form-control:focus, .form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(106, 27, 154, .25);
+}
+
+/* -------------------
+   PRODUCT CARDS
+------------------- */
+.product-card {
+    border-radius: var(--border-radius);
+    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0,0,0,.1) !important;
+    }
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* -------------------
+   FOOTER
+------------------- */
+.footer {
+    background-color: #fff;
+    text-align: center;
+    line-height: 60px;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* --- Product Card Styles --- */
+.product-card {
+    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,.15);
+    }
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover; /* This prevents the image from stretching */
+}

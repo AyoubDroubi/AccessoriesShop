@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AccessoriesShop.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to LBR Accessories</h1>
+    <p>Find the best accessories that match your style.</p>
+</div>
+
+<hr />
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 product-card border-0 shadow-sm">
+                <img src="@item.ImageUrl" class="card-img-top" alt="@item.Name">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text small text-muted">@item.Description</p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="product-price">@item.Price.ToString("C")</span>
+                        <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

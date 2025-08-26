@@ -1,0 +1,34 @@
+﻿@model AccessoriesShop.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="card shadow-sm border-0 mb-4">
+    <div class="row g-0">
+        <div class="col-md-5">
+            <img src="@Model.ImageUrl" class="img-fluid rounded-start" alt="@Model.Name" style="object-fit: cover; height: 100%; max-height: 500px;">
+        </div>
+        <div class="col-md-7">
+            <div class="card-body">
+                <h1 class="card-title">@Html.DisplayFor(model => model.Name)</h1>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">Description</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+
+                    <dt class="col-sm-4">Price</dt>
+                    <dd class="col-sm-8 product-price">@Model.Price.ToString("C")</dd>
+
+                    <dt class="col-sm-4">Category</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Category.Name)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
