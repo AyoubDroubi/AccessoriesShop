@@ -3,6 +3,7 @@ using System;
 using AccessoriesShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccessoriesShop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250826172106_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.8");
@@ -103,23 +106,6 @@ namespace AccessoriesShop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Necklaces"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Bracelets"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Rings"
-                        });
                 });
 
             modelBuilder.Entity("AccessoriesShop.Models.Product", b =>
@@ -150,53 +136,6 @@ namespace AccessoriesShop.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            Description = "A beautiful silver necklace with a heart pendant.",
-                            ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Necklace",
-                            Name = "Silver Heart Necklace",
-                            Price = 49.99m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 1,
-                            Description = "Elegant 18k gold plated chain.",
-                            ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Necklace",
-                            Name = "Gold Chain Necklace",
-                            Price = 79.99m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 2,
-                            Description = "Stylish genuine leather bracelet for everyday wear.",
-                            ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Bracelet",
-                            Name = "Leather Bracelet",
-                            Price = 25.00m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 2,
-                            Description = "Handmade bracelet with colorful beads.",
-                            ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Bracelet",
-                            Name = "Beaded Bracelet",
-                            Price = 15.50m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryId = 3,
-                            Description = "A stunning diamond ring, perfect for special occasions.",
-                            ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Ring",
-                            Name = "Diamond Ring",
-                            Price = 299.50m
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

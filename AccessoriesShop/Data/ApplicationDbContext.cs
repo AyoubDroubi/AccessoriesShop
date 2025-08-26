@@ -20,54 +20,6 @@ namespace AccessoriesShop.Data
         {
             base.OnModelCreating(builder);
 
-            // --- Seeding for 3 Users (from previous step) ---
-            var hasher = new PasswordHasher<ApplicationUser>();
-            const string USER_ID_1 = "a18be9c0-aa65-4af8-bd17-00bd9344e575";
-            const string USER_ID_2 = "a18be9c0-aa65-4af8-bd17-00bd9344e576";
-            const string USER_ID_3 = "a18be9c0-aa65-4af8-bd17-00bd9344e577";
-
-            builder.Entity<ApplicationUser>().HasData(
-                new ApplicationUser
-                {
-                    Id = USER_ID_1,
-                    UserName = "Lana@LBR.com",
-                    NormalizedUserName = "Lana@LBR.COM",
-                    Email = "Lana@LBR.com",
-                    NormalizedEmail = "Lana@LBR.COM",
-                    EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "Pa$$w0rd"),
-                    SecurityStamp = string.Empty,
-                    FirstName = "Lana",
-                    LastName = "Al-Batoush"
-                },
-                new ApplicationUser
-                {
-                    Id = USER_ID_2,
-                    UserName = "Balqees@LBR.COM",
-                    NormalizedUserName = "Balqees@LBR.COM",
-                    Email = "Balqees@LBR.COM",
-                    NormalizedEmail = "Balqees@LBR.COM",
-                    EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "Pa$$w0rd"),
-                    SecurityStamp = string.Empty,
-                    FirstName = "Balqees", // <-- الإضافة الجديدة
-                    LastName = "Alharasis"
-                },
-                new ApplicationUser
-                {
-                    Id = USER_ID_3,
-                    UserName = "Rawan@LBR.COM",
-                    NormalizedUserName = "Rawan@LBR.COM",
-                    Email = "Rawan@LBR.COM",
-                    NormalizedEmail = "Rawan@LBR.COM",
-                    EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "Pa$$w0rd"),
-                    SecurityStamp = string.Empty,
-                    FirstName = "Rawan", // <-- الإضافة الجديدة
-                    LastName = "Shorbaji"
-                }
-            );
-
             builder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Necklaces" },
                 new Category { Id = 2, Name = "Bracelets" },
