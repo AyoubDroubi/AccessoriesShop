@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AccessoriesShop.Data.Migrations
+namespace AccessoriesShop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -21,6 +21,137 @@ namespace AccessoriesShop.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("AccessoriesShop.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2f0113bf-138b-407f-bd49-47ec396a4856",
+                            Email = "Lana@LBR.com",
+                            EmailConfirmed = true,
+                            FirstName = "Lana",
+                            LastName = "Al-Batoush",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "Lana@LBR.COM",
+                            NormalizedUserName = "Lana@LBR.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEVySdQx/VO/l+hcw1O1xbOg3nuAFPN4KzUsbEblPWAwJDcMqRKJ8cneECl9xX6rBA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "Lana@LBR.com"
+                        },
+                        new
+                        {
+                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e576",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "ebfc065d-27d6-40fa-8993-5293e79af671",
+                            Email = "Balqees@LBR.COM",
+                            EmailConfirmed = true,
+                            FirstName = "Balqees",
+                            LastName = "Alharasis",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "Balqees@LBR.COM",
+                            NormalizedUserName = "Balqees@LBR.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBee+ecL5c44xt1gyJwImFQJlN8xflwgAScDi60XMHzzoUmkD09zQQOxozFqU8cCJw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "Balqees@LBR.COM"
+                        },
+                        new
+                        {
+                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e577",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c5282c5c-3199-4098-9c15-ef92ddb50e14",
+                            Email = "Rawan@LBR.COM",
+                            EmailConfirmed = true,
+                            FirstName = "Rawan",
+                            LastName = "Shorbaji",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "Rawan@LBR.COM",
+                            NormalizedUserName = "Rawan@LBR.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPfKGwFYbG0wnbY9FMGuYp+AhUaUDEKi/DspYLRp8LQUHJTE8o7XUQ3eWc7/DwL/YQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "Rawan@LBR.COM"
+                        });
+                });
 
             modelBuilder.Entity("AccessoriesShop.Models.Category", b =>
                 {
@@ -54,97 +185,6 @@ namespace AccessoriesShop.Data.Migrations
                         {
                             Id = 3,
                             Name = "Rings"
-                        });
-                });
-
-            modelBuilder.Entity("AccessoriesShop.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            OrderDate = new DateTime(2025, 8, 15, 21, 41, 11, 956, DateTimeKind.Local).AddTicks(7374),
-                            UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e576"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            OrderDate = new DateTime(2025, 8, 20, 21, 41, 11, 956, DateTimeKind.Local).AddTicks(7408),
-                            UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e577"
-                        });
-                });
-
-            modelBuilder.Entity("AccessoriesShop.Models.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderItems");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            OrderId = 1,
-                            Price = 49.99m,
-                            ProductId = 1,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            OrderId = 1,
-                            Price = 25.00m,
-                            ProductId = 3,
-                            Quantity = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            OrderId = 2,
-                            Price = 299.50m,
-                            ProductId = 5,
-                            Quantity = 1
                         });
                 });
 
@@ -279,121 +319,6 @@ namespace AccessoriesShop.Data.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "85e4f8d3-d1cf-4778-b3cf-3d2d05a0d636",
-                            Email = "Lana@LBR.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "Lana@LBR.COM",
-                            NormalizedUserName = "Lana@LBR.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAYn9hI7h4eLhTMarhzyVY4E+Ku8pmMZATbsTXx2no85628rQIvRIBMUBF8LpmJk0w==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "Lana@LBR.com"
-                        },
-                        new
-                        {
-                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e576",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "9c481f47-83f1-4356-abd1-bb49c9e69e6d",
-                            Email = "Balqees@LBR.COM",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "Balqees@LBR.COM",
-                            NormalizedUserName = "Balqees@LBR.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEK0+P8FcBDdLuXhyd/B/I0t0TW/VdnuKH34nemihCcn+ZEUCPbRFTsbcZNSUy2gtuw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "Balqees@LBR.COM"
-                        },
-                        new
-                        {
-                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e577",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "02e72b98-1e34-44fa-a826-0378169c97bf",
-                            Email = "Rawan@LBR.COM",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "Rawan@LBR.COM",
-                            NormalizedUserName = "Rawan@LBR.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELMQVEfTgS4Hm63OWC62Q9HzKG2tfjuwtYpoXDqVI0dM5ALz5HhV1/sCyRR/S6yzjA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "Rawan@LBR.COM"
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -479,36 +404,6 @@ namespace AccessoriesShop.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AccessoriesShop.Models.Order", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AccessoriesShop.Models.OrderItem", b =>
-                {
-                    b.HasOne("AccessoriesShop.Models.Order", "Order")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AccessoriesShop.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("AccessoriesShop.Models.Product", b =>
                 {
                     b.HasOne("AccessoriesShop.Models.Category", "Category")
@@ -531,7 +426,7 @@ namespace AccessoriesShop.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("AccessoriesShop.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -540,7 +435,7 @@ namespace AccessoriesShop.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("AccessoriesShop.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -555,7 +450,7 @@ namespace AccessoriesShop.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("AccessoriesShop.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -564,7 +459,7 @@ namespace AccessoriesShop.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("AccessoriesShop.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -574,11 +469,6 @@ namespace AccessoriesShop.Data.Migrations
             modelBuilder.Entity("AccessoriesShop.Models.Category", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("AccessoriesShop.Models.Order", b =>
-                {
-                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

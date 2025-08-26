@@ -5,12 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AccessoriesShop.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -23,13 +21,13 @@ namespace AccessoriesShop.Data
             base.OnModelCreating(builder);
 
             // --- Seeding for 3 Users (from previous step) ---
-            var hasher = new PasswordHasher<IdentityUser>();
+            var hasher = new PasswordHasher<ApplicationUser>();
             const string USER_ID_1 = "a18be9c0-aa65-4af8-bd17-00bd9344e575";
             const string USER_ID_2 = "a18be9c0-aa65-4af8-bd17-00bd9344e576";
             const string USER_ID_3 = "a18be9c0-aa65-4af8-bd17-00bd9344e577";
 
-            builder.Entity<IdentityUser>().HasData(
-                new IdentityUser
+            builder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
                 {
                     Id = USER_ID_1,
                     UserName = "Lana@LBR.com",
@@ -38,9 +36,11 @@ namespace AccessoriesShop.Data
                     NormalizedEmail = "Lana@LBR.COM",
                     EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "Pa$$w0rd"),
-                    SecurityStamp = string.Empty
+                    SecurityStamp = string.Empty,
+                    FirstName = "Lana",
+                    LastName = "Al-Batoush"
                 },
-                new IdentityUser
+                new ApplicationUser
                 {
                     Id = USER_ID_2,
                     UserName = "Balqees@LBR.COM",
@@ -49,9 +49,11 @@ namespace AccessoriesShop.Data
                     NormalizedEmail = "Balqees@LBR.COM",
                     EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "Pa$$w0rd"),
-                    SecurityStamp = string.Empty
+                    SecurityStamp = string.Empty,
+                    FirstName = "Balqees", // <-- الإضافة الجديدة
+                    LastName = "Alharasis"
                 },
-                new IdentityUser
+                new ApplicationUser
                 {
                     Id = USER_ID_3,
                     UserName = "Rawan@LBR.COM",
@@ -60,7 +62,9 @@ namespace AccessoriesShop.Data
                     NormalizedEmail = "Rawan@LBR.COM",
                     EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "Pa$$w0rd"),
-                    SecurityStamp = string.Empty
+                    SecurityStamp = string.Empty,
+                    FirstName = "Rawan", // <-- الإضافة الجديدة
+                    LastName = "Shorbaji"
                 }
             );
 
@@ -78,16 +82,6 @@ namespace AccessoriesShop.Data
                 new Product { Id = 5, Name = "Diamond Ring", Description = "A stunning diamond ring, perfect for special occasions.", Price = 299.50m, CategoryId = 3, ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Ring" }
             );
 
-            builder.Entity<Order>().HasData(
-                new Order { Id = 1, UserId = USER_ID_2, OrderDate = DateTime.Now.AddDays(-10) },
-                new Order { Id = 2, UserId = USER_ID_3, OrderDate = DateTime.Now.AddDays(-5) }
-            );
-
-            builder.Entity<OrderItem>().HasData(
-                new OrderItem { Id = 1, OrderId = 1, ProductId = 1, Quantity = 1, Price = 49.99m }, // Silver Heart Necklace
-                new OrderItem { Id = 2, OrderId = 1, ProductId = 3, Quantity = 2, Price = 25.00m }, // 2x Leather Bracelet
-                new OrderItem { Id = 3, OrderId = 2, ProductId = 5, Quantity = 1, Price = 299.50m } // Diamond Ring
-            );
         }
     }
 }
