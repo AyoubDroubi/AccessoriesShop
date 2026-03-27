@@ -2,15 +2,17 @@
    GLOBAL STYLES
 ------------------- */
 :root {
-    --primary-color: #6a1b9a; /* A richer purple */
-    --primary-hover: #4a148c;
-    --body-bg: #f4f7f6;
+    --primary-color: #0d7377;
+    --primary-hover: #0a5c60;
+    --body-bg: #f4f9f7;
     --card-bg: #ffffff;
     --text-color: #333;
     --border-radius: 8px;
 }
 
 html {
+    position: relative;
+    min-height: 100%;
     font-size: 14px;
 }
 
@@ -18,11 +20,6 @@ html {
     html {
         font-size: 16px;
     }
-}
-
-html {
-    position: relative;
-    min-height: 100%;
 }
 
 body {
@@ -81,9 +78,10 @@ body {
         color: white;
     }
 
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus,
 .form-control:focus, .form-check-input:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(106, 27, 154, .25);
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(13, 115, 119, 0.35);
 }
 
 /* -------------------
@@ -96,7 +94,7 @@ body {
 
     .product-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(0,0,0,.1) !important;
+        box-shadow: 0 12px 24px rgba(13, 115, 119, 0.12) !important;
     }
 
 .card-img-top {
@@ -119,41 +117,4 @@ body {
     background-color: #fff;
     text-align: center;
     line-height: 60px;
-}
-
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-/* --- Product Card Styles --- */
-.product-card {
-    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
-}
-
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0,0,0,.15);
-    }
-
-.card-img-top {
-    height: 250px;
-    object-fit: cover; /* This prevents the image from stretching */
 }

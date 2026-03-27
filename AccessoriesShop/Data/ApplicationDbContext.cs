@@ -21,17 +21,17 @@ namespace AccessoriesShop.Data
             base.OnModelCreating(builder);
 
             builder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "Necklaces" },
-                new Category { Id = 2, Name = "Bracelets" },
-                new Category { Id = 3, Name = "Rings" }
+                new Category { Id = 1, Name = "Electronics" },
+                new Category { Id = 2, Name = "Clothing" },
+                new Category { Id = 3, Name = "Home Goods" }
             );
 
             builder.Entity<Product>().HasData(
-                new Product { Id = 1, Name = "Silver Heart Necklace", Description = "A beautiful silver necklace with a heart pendant.", Price = 49.99m, CategoryId = 1, ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Necklace" },
-                new Product { Id = 2, Name = "Gold Chain Necklace", Description = "Elegant 18k gold plated chain.", Price = 79.99m, CategoryId = 1, ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Necklace" },
-                new Product { Id = 3, Name = "Leather Bracelet", Description = "Stylish genuine leather bracelet for everyday wear.", Price = 25.00m, CategoryId = 2, ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Bracelet" },
-                new Product { Id = 4, Name = "Beaded Bracelet", Description = "Handmade bracelet with colorful beads.", Price = 15.50m, CategoryId = 2, ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Bracelet" },
-                new Product { Id = 5, Name = "Diamond Ring", Description = "A stunning diamond ring, perfect for special occasions.", Price = 299.50m, CategoryId = 3, ImageUrl = "https://placehold.co/600x400/EEE/31343C?text=Ring" }
+                new Product { Id = 1, Name = "Wireless Earbuds", Description = "Compact wireless earbuds with clear sound and long battery life.", Price = 29.99m, CategoryId = 1, ImageUrl = "https://placehold.co/600x400/d4ede8/0d7377?text=Electronics" },
+                new Product { Id = 2, Name = "USB-C Cable", Description = "Durable 2-meter USB-C charging and data cable.", Price = 9.99m, CategoryId = 1, ImageUrl = "https://placehold.co/600x400/d4ede8/0d7377?text=Electronics" },
+                new Product { Id = 3, Name = "Classic T-Shirt", Description = "Comfortable cotton t-shirt available in multiple colors.", Price = 19.99m, CategoryId = 2, ImageUrl = "https://placehold.co/600x400/d4ede8/0d7377?text=Clothing" },
+                new Product { Id = 4, Name = "Water Bottle", Description = "Stainless steel insulated bottle, keeps drinks cold for 24 hours.", Price = 14.99m, CategoryId = 3, ImageUrl = "https://placehold.co/600x400/d4ede8/0d7377?text=Home+Goods" },
+                new Product { Id = 5, Name = "Notebook", Description = "A5 lined notebook, 200 pages, great for notes and journaling.", Price = 5.99m, CategoryId = 3, ImageUrl = "https://placehold.co/600x400/d4ede8/0d7377?text=Home+Goods" }
             );
 
         }

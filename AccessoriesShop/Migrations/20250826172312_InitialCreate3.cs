@@ -17,9 +17,9 @@ namespace AccessoriesShop.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Necklaces" },
-                    { 2, "Bracelets" },
-                    { 3, "Rings" }
+                    { 1, "Electronics" },
+                    { 2, "Clothing" },
+                    { 3, "Home Goods" }
                 });
 
             migrationBuilder.InsertData(
@@ -27,11 +27,11 @@ namespace AccessoriesShop.Migrations
                 columns: new[] { "Id", "CategoryId", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, 1, "A beautiful silver necklace with a heart pendant.", "https://placehold.co/600x400/EEE/31343C?text=Necklace", "Silver Heart Necklace", 49.99m },
-                    { 2, 1, "Elegant 18k gold plated chain.", "https://placehold.co/600x400/EEE/31343C?text=Necklace", "Gold Chain Necklace", 79.99m },
-                    { 3, 2, "Stylish genuine leather bracelet for everyday wear.", "https://placehold.co/600x400/EEE/31343C?text=Bracelet", "Leather Bracelet", 25.00m },
-                    { 4, 2, "Handmade bracelet with colorful beads.", "https://placehold.co/600x400/EEE/31343C?text=Bracelet", "Beaded Bracelet", 15.50m },
-                    { 5, 3, "A stunning diamond ring, perfect for special occasions.", "https://placehold.co/600x400/EEE/31343C?text=Ring", "Diamond Ring", 299.50m }
+                    { 1, 1, "Compact wireless earbuds with clear sound and long battery life.", "https://placehold.co/600x400/d4ede8/0d7377?text=Electronics", "Wireless Earbuds", 29.99m },
+                    { 2, 1, "Durable 2-meter USB-C charging and data cable.", "https://placehold.co/600x400/d4ede8/0d7377?text=Electronics", "USB-C Cable", 9.99m },
+                    { 3, 2, "Comfortable cotton t-shirt available in multiple colors.", "https://placehold.co/600x400/d4ede8/0d7377?text=Clothing", "Classic T-Shirt", 19.99m },
+                    { 4, 3, "Stainless steel insulated bottle, keeps drinks cold for 24 hours.", "https://placehold.co/600x400/d4ede8/0d7377?text=Home+Goods", "Water Bottle", 14.99m },
+                    { 5, 3, "A5 lined notebook, 200 pages, great for notes and journaling.", "https://placehold.co/600x400/d4ede8/0d7377?text=Home+Goods", "Notebook", 5.99m }
                 });
         }
 
